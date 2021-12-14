@@ -8,20 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		691C038A2768C50A000DE236 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691C03892768C50A000DE236 /* AppDelegate.swift */; };
-		691C038E2768C50A000DE236 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691C038D2768C50A000DE236 /* ViewController.swift */; };
 		691C03942768C50A000DE236 /* AirbnbClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 691C03922768C50A000DE236 /* AirbnbClone.xcdatamodeld */; };
 		691C03962768C50C000DE236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 691C03952768C50C000DE236 /* Assets.xcassets */; };
 		691C03992768C50C000DE236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 691C03972768C50C000DE236 /* LaunchScreen.storyboard */; };
+		691C03AC2768C9F2000DE236 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691C03AA2768C9F2000DE236 /* ViewController.swift */; };
+		691C03AD2768C9F2000DE236 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691C03AB2768C9F2000DE236 /* ViewController.xib */; };
+		691C03B02768CB18000DE236 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691C03AE2768CB18000DE236 /* MainViewController.swift */; };
+		691C03B12768CB18000DE236 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691C03AF2768CB18000DE236 /* MainViewController.xib */; };
+		691C03B82768E382000DE236 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691C03B62768E382000DE236 /* MainTableViewCell.swift */; };
+		691C03B92768E382000DE236 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691C03B72768E382000DE236 /* MainTableViewCell.xib */; };
+		692A89D527693FAF0026002F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692A89D327693FAF0026002F /* DetailViewController.swift */; };
+		692A89D627693FAF0026002F /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 692A89D427693FAF0026002F /* DetailViewController.xib */; };
+		692A89DA276941390026002F /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692A89D8276941390026002F /* DetailTableViewCell.swift */; };
+		692A89DB276941390026002F /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 692A89D9276941390026002F /* DetailTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		691C03862768C50A000DE236 /* AirbnbClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirbnbClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		691C03892768C50A000DE236 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		691C038D2768C50A000DE236 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		691C03932768C50A000DE236 /* AirbnbClone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AirbnbClone.xcdatamodel; sourceTree = "<group>"; };
 		691C03952768C50C000DE236 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		691C03982768C50C000DE236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		691C039A2768C50C000DE236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		691C03AA2768C9F2000DE236 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		691C03AB2768C9F2000DE236 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		691C03AE2768CB18000DE236 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		691C03AF2768CB18000DE236 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		691C03B62768E382000DE236 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		691C03B72768E382000DE236 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		692A89D327693FAF0026002F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		692A89D427693FAF0026002F /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		692A89D8276941390026002F /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		692A89D9276941390026002F /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +72,7 @@
 		691C03882768C50A000DE236 /* AirbnbClone */ = {
 			isa = PBXGroup;
 			children = (
-				691C038D2768C50A000DE236 /* ViewController.swift */,
+				691C03A92768C9B8000DE236 /* StartModule */,
 				691C03A02768C755000DE236 /* MainModule */,
 				691C03A12768C76A000DE236 /* DetailModule */,
 				691C03A22768C79D000DE236 /* Resourses */,
@@ -111,6 +129,9 @@
 		691C03A52768C809000DE236 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				692A89D327693FAF0026002F /* DetailViewController.swift */,
+				692A89D427693FAF0026002F /* DetailViewController.xib */,
+				692A89D7276941200026002F /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,6 +139,9 @@
 		691C03A62768C814000DE236 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				691C03AE2768CB18000DE236 /* MainViewController.swift */,
+				691C03AF2768CB18000DE236 /* MainViewController.xib */,
+				691C03BA2768EE5B000DE236 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -134,6 +158,33 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		691C03A92768C9B8000DE236 /* StartModule */ = {
+			isa = PBXGroup;
+			children = (
+				691C03AA2768C9F2000DE236 /* ViewController.swift */,
+				691C03AB2768C9F2000DE236 /* ViewController.xib */,
+			);
+			path = StartModule;
+			sourceTree = "<group>";
+		};
+		691C03BA2768EE5B000DE236 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				691C03B62768E382000DE236 /* MainTableViewCell.swift */,
+				691C03B72768E382000DE236 /* MainTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		692A89D7276941200026002F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				692A89D8276941390026002F /* DetailTableViewCell.swift */,
+				692A89D9276941390026002F /* DetailTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,7 +246,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				691C03992768C50C000DE236 /* LaunchScreen.storyboard in Resources */,
+				692A89D627693FAF0026002F /* DetailViewController.xib in Resources */,
+				691C03AD2768C9F2000DE236 /* ViewController.xib in Resources */,
 				691C03962768C50C000DE236 /* Assets.xcassets in Resources */,
+				691C03B12768CB18000DE236 /* MainViewController.xib in Resources */,
+				692A89DB276941390026002F /* DetailTableViewCell.xib in Resources */,
+				691C03B92768E382000DE236 /* MainTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,9 +262,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				691C038E2768C50A000DE236 /* ViewController.swift in Sources */,
+				691C03AC2768C9F2000DE236 /* ViewController.swift in Sources */,
 				691C038A2768C50A000DE236 /* AppDelegate.swift in Sources */,
+				692A89DA276941390026002F /* DetailTableViewCell.swift in Sources */,
 				691C03942768C50A000DE236 /* AirbnbClone.xcdatamodeld in Sources */,
+				692A89D527693FAF0026002F /* DetailViewController.swift in Sources */,
+				691C03B02768CB18000DE236 /* MainViewController.swift in Sources */,
+				691C03B82768E382000DE236 /* MainTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

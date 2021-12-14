@@ -8,12 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet private var button: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
     }
-
-
+    
+    @IBAction func button(_ sender: UIButton) {
+        navigationController?.pushViewController(MainViewController(), animated: true)
+    }
 }
-
