@@ -8,23 +8,24 @@
 import UIKit
 
 class MainTableViewCell: UITableViewCell {
-    @IBOutlet var view: UIView!
-    @IBOutlet var homeImageView: UIImageView!
-    @IBOutlet var placeLabel: UILabel!
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var numberLabel: UILabel!
-    @IBOutlet var nightLabel: UILabel!
+    @IBOutlet private var view: UIView!
+    @IBOutlet private var homeImageView: UIImageView!
+    @IBOutlet private var placeLabel: UILabel!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var numberLabel: UILabel!
+    @IBOutlet private var nightLabel: UILabel!
+    @IBOutlet private var likeButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         homeImageView.image = UIImage(named: "home")
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        
-    }
     
+    func config(floor: Floor) {
+        homeImageView.image = UIImage(named: floor.imageName)
+        placeLabel.text = floor.place
+        nameLabel.text = floor.minimalizedName
+        numberLabel.text = floor.cost
+    }
 }

@@ -9,7 +9,17 @@ import UIKit
 
 class MainViewController: UIViewController {
 //    let customView = UIDatePicker()
+    var viewModel: MainViewModel?
     @IBOutlet private var tableView: UITableView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // Make the navigation bar background clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,18 +28,6 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil),
                                 forCellReuseIdentifier: "cell")
-        
-        setupNavigationBar()
-    }
-    
-    private func setup() {
-//        navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: customView)
-    }
-    
-    private func setupNavigationBar() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
     }
 }
 
@@ -39,12 +37,21 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let viewModel = viewModel else { return UITableViewCell() }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainTableViewCell
-//        cell.homeImageView.image = UIImage(named: "")
+        cell.config(floor: viewModel.floorsArray[indexPath.row])
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(DetailViewController(), animated: true)
+        guard let viewModel = viewModel else { return }
+
+        let floor = viewModel.floorsArray[indexPath.row]
+        let detailedViewModel = DetailedViewModel(floor: floor)
+        let viewController = DetailViewController()
+        viewController.viewModel = detailedViewModel
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

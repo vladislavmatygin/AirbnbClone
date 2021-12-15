@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="294"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wf3-SO-8k7">
-                                <rect key="frame" x="8" y="0.0" width="377" height="194.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="194.5"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hkQ-HD-ORN">
                                 <rect key="frame" x="61" y="218.5" width="271" height="61.5"/>
@@ -42,13 +42,13 @@
                                         <rect key="frame" x="0.0" y="41" width="271" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvi-hV-quS">
-                                                <rect key="frame" x="0.0" y="0.0" width="228.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="226.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dH-qi-Xi3">
-                                                <rect key="frame" x="229.5" y="0.0" width="41.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="/night" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dH-qi-Xi3">
+                                                <rect key="frame" x="227.5" y="0.0" width="43.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -63,14 +63,21 @@
                                     <constraint firstItem="gcU-Bf-blF" firstAttribute="leading" secondItem="hkQ-HD-ORN" secondAttribute="leading" id="wy4-ek-cj8"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dg4-4X-7dc">
+                                <rect key="frame" x="324.5" y="8" width="44.5" height="33.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="like"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hkQ-HD-ORN" secondAttribute="trailing" constant="61" id="0wn-Rd-QSu"/>
+                            <constraint firstAttribute="trailing" secondItem="dg4-4X-7dc" secondAttribute="trailing" constant="24" id="5pH-yY-Rld"/>
                             <constraint firstItem="hkQ-HD-ORN" firstAttribute="leading" secondItem="mXG-tf-Fw0" secondAttribute="leading" constant="61" id="8aQ-Qy-ipP"/>
-                            <constraint firstItem="wf3-SO-8k7" firstAttribute="leading" secondItem="mXG-tf-Fw0" secondAttribute="leading" constant="8" id="Abq-Ll-oih"/>
+                            <constraint firstItem="wf3-SO-8k7" firstAttribute="leading" secondItem="mXG-tf-Fw0" secondAttribute="leading" id="Abq-Ll-oih"/>
                             <constraint firstItem="wf3-SO-8k7" firstAttribute="top" secondItem="mXG-tf-Fw0" secondAttribute="top" id="Cdc-1e-lSI"/>
-                            <constraint firstAttribute="trailing" secondItem="wf3-SO-8k7" secondAttribute="trailing" constant="8" id="Izn-8k-lk9"/>
+                            <constraint firstAttribute="trailing" secondItem="wf3-SO-8k7" secondAttribute="trailing" id="Izn-8k-lk9"/>
+                            <constraint firstItem="dg4-4X-7dc" firstAttribute="top" secondItem="mXG-tf-Fw0" secondAttribute="top" constant="8" id="P37-c8-bAv"/>
                             <constraint firstItem="hkQ-HD-ORN" firstAttribute="top" secondItem="wf3-SO-8k7" secondAttribute="bottom" constant="24" id="yKQ-TJ-2Ql"/>
                             <constraint firstAttribute="bottom" secondItem="hkQ-HD-ORN" secondAttribute="bottom" constant="14" id="yLC-ZF-4Ig"/>
                         </constraints>
@@ -86,6 +93,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="homeImageView" destination="wf3-SO-8k7" id="bob-PI-E2T"/>
+                <outlet property="likeButton" destination="dg4-4X-7dc" id="ue8-Wb-JFH"/>
                 <outlet property="nameLabel" destination="Jyr-qL-5nD" id="Nfy-fU-ZY2"/>
                 <outlet property="nightLabel" destination="4dH-qi-Xi3" id="LFK-nj-O6X"/>
                 <outlet property="numberLabel" destination="Bvi-hV-quS" id="bVF-Ge-OZZ"/>
@@ -96,6 +104,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="like" width="21" height="20"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

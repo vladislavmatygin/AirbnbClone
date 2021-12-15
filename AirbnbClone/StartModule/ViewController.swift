@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func button(_ sender: UIButton) {
-        navigationController?.pushViewController(MainViewController(), animated: true)
+        let mainViewController = MainViewController()
+        let viewModel = MainViewModel()
+        mainViewController.viewModel = viewModel
+        navigationController?.pushViewController(mainViewController, animated: true)
     }
 }
