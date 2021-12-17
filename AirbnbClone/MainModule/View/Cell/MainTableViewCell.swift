@@ -19,6 +19,12 @@ class MainTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        setup()
+    }
+    
+    private func setup() {
+        homeImageView.layer.cornerRadius = 35
+        homeImageView.layer.masksToBounds = true
         homeImageView.image = UIImage(named: "home")
     }
     

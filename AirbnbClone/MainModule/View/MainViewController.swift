@@ -8,13 +8,13 @@
 import UIKit
 
 class MainViewController: UIViewController {
-//    let customView = UIDatePicker()
     var viewModel: MainViewModel?
     @IBOutlet private var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        navigationController?.navigationBar.tintColor = .label
+        
         // Make the navigation bar background clear
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()

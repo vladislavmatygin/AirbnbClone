@@ -29,22 +29,33 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         setup()
+        configureItems()
     }
     
     private func setup() {
-        // setup
-        
+        changeDateButton.layer.cornerRadius = 12
         config()
     }
     
     private func config() {
-        guard let viewModel = viewModel else {
-            return
-        }
+        guard let viewModel = viewModel else { return }
 
         floorImage.image = UIImage(named: viewModel.floor.imageName)
         nameLabel.text = viewModel.floor.name
         hostLabel.text = viewModel.floor.minimalizedName
+    }
+    
+    private func configureItems() {
+        self.navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(named: "like"),
+                            style: .done,
+                            target: self,
+                            action: nil),
+            UIBarButtonItem(image: UIImage(named:"share"),
+                            style: .done,
+                            target: self,
+                            action: #selector(share(sender:)))
+        ]
     }
 
     private func setupNavigationBar() {
@@ -53,5 +64,24 @@ class DetailViewController: UIViewController {
         navController.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navController.navigationBar.shadowImage = UIImage()
         navController.navigationBar.isTranslucent = true
+    }
+    
+    @objc func share(sender: UIView){
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+//        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        let textToShare = "Check out my app"
+
+        if let myImage = UIImage(named: "home") {
+            let objectsToShare = [textToShare, myImage] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            //Excluded Activities
+            activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+            activityVC.popoverPresentationController?.sourceView = sender
+
+            self.present(activityVC, animated: true, completion: nil)
+        }
     }
 }
