@@ -24,10 +24,21 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureItems()
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil),
                                 forCellReuseIdentifier: "cell")
+    }
+    
+    private func configureItems() {
+        self.navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(named: "setting"),
+                            style: .done,
+                            target: self,
+                            action: nil)
+        ]
     }
 }
 

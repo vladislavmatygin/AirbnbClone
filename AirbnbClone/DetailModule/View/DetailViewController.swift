@@ -50,7 +50,7 @@ class DetailViewController: UIViewController {
             UIBarButtonItem(image: UIImage(named: "like"),
                             style: .done,
                             target: self,
-                            action: nil),
+                            action: #selector(like(_:))),
             UIBarButtonItem(image: UIImage(named:"share"),
                             style: .done,
                             target: self,
@@ -66,7 +66,18 @@ class DetailViewController: UIViewController {
         navController.navigationBar.isTranslucent = true
     }
     
-    @objc func share(sender: UIView){
+    @objc func like(_ sender: UIBarButtonItem) {
+        sender.isSelected = !sender.isSelected
+        sender.tintColor = .clear
+        
+        if sender.isSelected{
+            sender.setBackgroundImage(UIImage(named: "likePressed"), for: .normal, barMetrics: .default)
+        } else{
+            sender.setBackgroundImage(UIImage(named: "like"), for: .normal, barMetrics: .default)
+        }
+    }
+    
+    @objc func share(sender: UIView) {
         UIGraphicsBeginImageContext(view.frame.size)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
 //        let image = UIGraphicsGetImageFromCurrentImageContext()
