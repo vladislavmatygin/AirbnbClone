@@ -19,6 +19,9 @@
 		691C03B92768E382000DE236 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691C03B72768E382000DE236 /* MainTableViewCell.xib */; };
 		692A89D527693FAF0026002F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692A89D327693FAF0026002F /* DetailViewController.swift */; };
 		692A89D627693FAF0026002F /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 692A89D427693FAF0026002F /* DetailViewController.xib */; };
+		6968F2F4276CD4990051D37E /* ToDoLikeItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6968F2F2276CD4990051D37E /* ToDoLikeItem+CoreDataClass.swift */; };
+		6968F2F5276CD4990051D37E /* ToDoLikeItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6968F2F3276CD4990051D37E /* ToDoLikeItem+CoreDataProperties.swift */; };
+		6968F2F8276D60A60051D37E /* DatasourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6968F2F7276D60A60051D37E /* DatasourceManager.swift */; };
 		6987767C276A998100233F3E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6987767B276A998100233F3E /* MainViewModel.swift */; };
 		6987767E276A9DC200233F3E /* DetailedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6987767D276A9DC200233F3E /* DetailedViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +41,9 @@
 		691C03B72768E382000DE236 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		692A89D327693FAF0026002F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		692A89D427693FAF0026002F /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		6968F2F2276CD4990051D37E /* ToDoLikeItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoLikeItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6968F2F3276CD4990051D37E /* ToDoLikeItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoLikeItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6968F2F7276D60A60051D37E /* DatasourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasourceManager.swift; sourceTree = "<group>"; };
 		6987767B276A998100233F3E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		6987767D276A9DC200233F3E /* DetailedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,8 +82,10 @@
 				691C03A02768C755000DE236 /* MainModule */,
 				691C03A12768C76A000DE236 /* DetailModule */,
 				691C03A22768C79D000DE236 /* Resourses */,
+				6968F2F6276D3A170051D37E /* CoreData */,
 				691C039A2768C50C000DE236 /* Info.plist */,
 				691C03922768C50A000DE236 /* AirbnbClone.xcdatamodeld */,
+				6968F2F7276D60A60051D37E /* DatasourceManager.swift */,
 			);
 			path = AirbnbClone;
 			sourceTree = "<group>";
@@ -161,6 +169,15 @@
 				691C03B72768E382000DE236 /* MainTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		6968F2F6276D3A170051D37E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				6968F2F2276CD4990051D37E /* ToDoLikeItem+CoreDataClass.swift */,
+				6968F2F3276CD4990051D37E /* ToDoLikeItem+CoreDataProperties.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		697B944B276B9B3600B58756 /* ViewModel */ = {
@@ -254,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				691C03AC2768C9F2000DE236 /* ViewController.swift in Sources */,
+				6968F2F5276CD4990051D37E /* ToDoLikeItem+CoreDataProperties.swift in Sources */,
 				691C038A2768C50A000DE236 /* AppDelegate.swift in Sources */,
 				6987767E276A9DC200233F3E /* DetailedViewModel.swift in Sources */,
 				691C03942768C50A000DE236 /* AirbnbClone.xcdatamodeld in Sources */,
@@ -261,6 +279,8 @@
 				691C03B02768CB18000DE236 /* MainViewController.swift in Sources */,
 				691C03B82768E382000DE236 /* MainTableViewCell.swift in Sources */,
 				6987767C276A998100233F3E /* MainViewModel.swift in Sources */,
+				6968F2F4276CD4990051D37E /* ToDoLikeItem+CoreDataClass.swift in Sources */,
+				6968F2F8276D60A60051D37E /* DatasourceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

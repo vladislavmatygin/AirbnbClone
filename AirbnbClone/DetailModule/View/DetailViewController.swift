@@ -1,4 +1,5 @@
 import UIKit
+import CloudKit
 
 class DetailViewController: UIViewController {
     var viewModel: DetailedViewModel?
@@ -21,7 +22,6 @@ class DetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // Make the navigation bar background clear
         setupNavigationBar()
     }
     
@@ -29,7 +29,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         setup()
-        configureItems()
+        updateRightBarButtonItems()
     }
     
     private func setup() {
@@ -37,6 +37,7 @@ class DetailViewController: UIViewController {
         config()
     }
     
+    //MARK: display data from model
     private func config() {
         guard let viewModel = viewModel else { return }
 
@@ -45,9 +46,16 @@ class DetailViewController: UIViewController {
         hostLabel.text = viewModel.floor.minimalizedName
     }
     
-    private func configureItems() {
+    private func updateRightBarButtonItems() {
+        guard let viewModel = viewModel else {
+            return
+        }
+
+        let color = viewModel.floor.isLiked ? UIColor.red : UIColor.black
+        let image = UIImage(named: "like")
+        
         self.navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(image: UIImage(named: "like"),
+            UIBarButtonItem(image: image,
                             style: .done,
                             target: self,
                             action: #selector(like(_:))),
@@ -56,6 +64,8 @@ class DetailViewController: UIViewController {
                             target: self,
                             action: #selector(share(sender:)))
         ]
+        
+        navigationItem.rightBarButtonItems?.first?.tintColor = color
     }
 
     private func setupNavigationBar() {
@@ -66,27 +76,33 @@ class DetailViewController: UIViewController {
         navController.navigationBar.isTranslucent = true
     }
     
-    @objc func like(_ sender: UIBarButtonItem) {
+    //MARK: add action for like
+    @objc private func like(_ sender: UIBarButtonItem) {
+        guard let viewModel = viewModel else { return }
+
         sender.isSelected = !sender.isSelected
         sender.tintColor = .clear
         
-        if sender.isSelected{
-            sender.setBackgroundImage(UIImage(named: "likePressed"), for: .normal, barMetrics: .default)
-        } else{
-            sender.setBackgroundImage(UIImage(named: "like"), for: .normal, barMetrics: .default)
+        if !viewModel.floor.isLiked {
+            viewModel.floor.isLiked = true
+            
+            updateRightBarButtonItems()
+            DataSourceManager.shared.saveLike(viewModel: viewModel)
+        } else {
+            viewModel.floor.isLiked = false
+            updateRightBarButtonItems()
+            DataSourceManager.shared.deleteLike(viewModel: viewModel)
         }
     }
     
-    @objc func share(sender: UIView) {
+    //MARK: add action for share
+    @objc private func share(sender: UIView) {
         UIGraphicsBeginImageContext(view.frame.size)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
-//        let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
-        let textToShare = "Check out my app"
-
-        if let myImage = UIImage(named: "home") {
-            let objectsToShare = [textToShare, myImage] as [Any]
+        if let viewModel = viewModel, let myImage = UIImage(named: viewModel.floor.imageName) {
+            let objectsToShare = [viewModel.floor.name, myImage] as [Any]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             //Excluded Activities
             activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]

@@ -33,5 +33,7 @@ class MainTableViewCell: UITableViewCell {
         placeLabel.text = floor.place
         nameLabel.text = floor.minimalizedName
         numberLabel.text = floor.cost
+        likeButton.imageView?.image = UIImage(named: "like")
+        likeButton.tintColor = floor.isLiked ? UIColor.red : UIColor.black
     }
 }

@@ -1,24 +1,18 @@
-//
-//  MainViewController.swift
-//  AirbnbClone
-//
-//  Created by Владислав Матыгин on 14.12.2021.
-//
-
 import UIKit
 
 class MainViewController: UIViewController {
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var viewModel: MainViewModel?
+    
+    let customView = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
+    
     @IBOutlet private var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.tintColor = .label
         
-        // Make the navigation bar background clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
+        setupNavigationController()
+        updateLikedViews()
     }
     
     override func viewDidLoad() {
@@ -32,16 +26,40 @@ class MainViewController: UIViewController {
                                 forCellReuseIdentifier: "cell")
     }
     
+    private func updateLikedViews() {
+        guard let viewModel = viewModel else {
+            return
+        }
+
+        for index in 0 ... viewModel.floorsArray.count - 1 {
+            var floor = viewModel.floorsArray[index]
+            let isLiked = DataSourceManager.shared.getLike(context: appDelegate.persistentContainer.viewContext, floorId: floor.id)?.isLiked.boolValue
+            floor.isLiked = isLiked ?? false
+            viewModel.floorsArray[index] = floor
+        }
+        
+        tableView.reloadData()
+    }
+    
+    private func setupNavigationController() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+    }
+    
+    //MARK: add items to Navigation Bar
     private func configureItems() {
         self.navigationItem.rightBarButtonItems = [
             UIBarButtonItem(image: UIImage(named: "setting"),
                             style: .done,
                             target: self,
-                            action: nil)
+                            action: nil),
+            UIBarButtonItem(customView: customView)
         ]
     }
 }
 
+//MARK: - Setup TableView
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
